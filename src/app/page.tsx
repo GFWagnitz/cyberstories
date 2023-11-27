@@ -2,6 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import PostsList from './components/PostsList';
 import {PostItemProps} from './components/PostItem';
+import Link from 'next/link';
 
 function sortPostsByYear(a:PostItemProps, b:PostItemProps) {
   return a.yearOfOccurrence > b.yearOfOccurrence ? 1 : -1;
@@ -45,7 +46,7 @@ export default function HomePage() {
     <div>
         <h1 className="text-5xl font-extrabold tracking-tight text-gray-200 sm:text-[5rem]">
           CyberStories
-        </h1><span className="text-gray-400 text-base">Por Gabriel Ferrari Wagnitz</span>
+        </h1><span className="text-gray-400 text-base">Por Gabriel Ferrari Wagnitz &mdash; <Link href="sobre" className='hover:bg-purple-900'>sobre o projeto</Link></span>
         <div className="text-gray-200 text-base">
           <PostsList posts={postsData}/>
         </div>
