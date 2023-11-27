@@ -42,7 +42,7 @@ export default async function Page({ params } : { params: { slug: string } }) {
       }
       <h1>{ frontmatter.title }</h1>
       {!!frontmatter.headImage ?
-      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} /> :
+      <article dangerouslySetInnerHTML={{ __html: md().render(content) }} /> :
       <p className='align-center text-gray-300 text-3xl text-center'>EM BREVE</p>
       }
     </div>

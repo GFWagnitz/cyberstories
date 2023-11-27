@@ -115,3 +115,12 @@ $faded-wide-spread-radius: 28px !default;
     color: blue;
   }
 }
+article a{
+    letter-spacing: 0.1em;
+    display: inline-block;
+    text-transform: uppercase;
+    &:hover{
+        background-color: rgb(88, 28, 135);
+        color: #fff;
+    }
+}
