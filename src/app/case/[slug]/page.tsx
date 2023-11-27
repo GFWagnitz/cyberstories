@@ -1,8 +1,8 @@
 import fs from 'fs';
+import path from 'path';
 import matter from 'gray-matter';
 import md from 'markdown-it';
 import Link from 'next/link';
-import Image from 'next/image';
 
 
 interface PostProps {
@@ -13,7 +13,8 @@ interface PostProps {
 async function getData(slug: string): Promise<PostProps|null>
 {
   try {
-    const fileName = fs.readFileSync(`public/posts/${slug}.md`, 'utf-8');
+    const file = path.join(process.cwd(), 'public/posts', `${slug}.md`);
+    const fileName = fs.readFileSync(file, 'utf-8');
 
     const { data: frontmatter, content } = matter(fileName);
 
@@ -37,7 +38,7 @@ export default async function Page({ params } : { params: { slug: string } }) {
     <div className="prose mx-auto mt-8">
       <Link href="/" className='hover:bg-purple-900 mb-2 inline-block'>&lt; Voltar</Link>
       {!!frontmatter?.headImage && !!frontmatter?.title &&
-      <Image className='post-headimage' src={frontmatter.headImage} alt={frontmatter.title} />
+      <img className='post-headimage' src={frontmatter.headImage} alt={frontmatter.title} />
       }
       <h1>{ frontmatter.title }</h1>
       {!!frontmatter.headImage ?
