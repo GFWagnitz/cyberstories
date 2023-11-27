@@ -1,11 +1,11 @@
 ---
-title: "O Episódio Snowden"
+title: "APT1 - Espionagem Internacional"
 metaTitle: ""
 metaDesc: ""
-thumbnail: /assets/images/snowden-thumb.png 
-headImage: /assets/images/snowden-head.png
+thumbnail: /assets/images/apt1-thumb.png 
+headImage: /assets/images/apt1-head.png
 publishDate: "2023-11-26"
-yearOfOccurrence: 2013
+yearOfOccurrence: 2011
 tags:
     - webrtc
 ---

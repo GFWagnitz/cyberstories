@@ -1,6 +1,8 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
+import Image from 'next/image';
+
 
 interface PostProps {
   frontmatter: {
@@ -23,7 +25,6 @@ async function getData(slug: string): Promise<PostProps|null>
 
   } catch (error) {
     console.error(error);
-
     return null;  
   }
 };
@@ -35,8 +36,14 @@ export default async function Page({ params } : { params: { slug: string } }) {
 
   return (
     <div className="prose mx-auto mt-8">
+      {!!frontmatter.headImage &&
+      <img className='post-headimage' src={frontmatter.headImage} alt={frontmatter.title} />
+      }
       <h1>{ frontmatter.title }</h1>
-      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+      {!!frontmatter.headImage ?
+      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} /> :
+      <p className='align-center text-gray-300 text-3xl text-center'>EM BREVE</p>
+      }
     </div>
   );
 }

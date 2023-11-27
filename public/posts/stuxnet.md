@@ -1,11 +1,11 @@
 ---
-title: "O Episódio Snowden"
+title: "Stuxnet - O Malware mais complexo já criado"
 metaTitle: ""
 metaDesc: ""
-thumbnail: /assets/images/snowden-thumb.png 
-headImage: /assets/images/snowden-head.png
+thumbnail: /assets/images/stuxnet-thumb.png 
+headImage: /assets/images/stuxnet-head.png
 publishDate: "2023-11-26"
-yearOfOccurrence: 2013
+yearOfOccurrence: 2010
 tags:
     - webrtc
 ---

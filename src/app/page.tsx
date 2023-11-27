@@ -3,6 +3,10 @@ import matter from 'gray-matter';
 import PostsList from './components/PostsList';
 import {PostItemProps} from './components/PostItem';
 
+function sortPostsByYear(a:PostItemProps, b:PostItemProps) {
+  return a.yearOfOccurrence > b.yearOfOccurrence ? 1 : -1;
+}
+
 async function getPosts(): Promise<PostItemProps[]> {
   try {
     const files = fs.readdirSync('public/posts');
@@ -23,7 +27,8 @@ async function getPosts(): Promise<PostItemProps[]> {
       };  
     }); 
 
-    return posts;  
+    // Sort posts by publish date
+    return posts.sort(sortPostsByYear);  
 
   } catch (error) {
     console.error(error);
@@ -40,7 +45,7 @@ export default function HomePage() {
     <div>
         <h1 className="text-5xl font-extrabold tracking-tight text-gray-200 sm:text-[5rem]">
           CyberStories
-        </h1>
+        </h1><span className="text-gray-400 text-base">Por Gabriel Ferrari Wagnitz</span>
         <div className="text-gray-200 text-base">
           <PostsList posts={postsData}/>
         </div>

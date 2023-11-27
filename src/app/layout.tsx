@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import "~/styles/global.scss";
 
 import { Inter } from "next/font/google";
 
@@ -23,10 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`font-sans ${inter.variable}`}>
-        <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#27213C] to-[#040805] text-gray-200">
-          <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+        <main className="flex min-h-screen flex-col items-center  bg-gradient-to-b from-[#27213C] to-[#040805] text-gray-200">
+          <div className="container flex flex-col items-center  gap-12 px-4 py-8 ">
             {children}
           </div>
         </main>
