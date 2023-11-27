@@ -1,15 +1,17 @@
 import React from 'react';
 import Link from "next/link";
+import Image from 'next/image';
 
 export interface PostItemProps {
-  title: string;
   slug: string;
-  imageUrl: string | undefined;
+  title: string;
+  thumbnail: string | undefined;
+  headImage: string | undefined;
   publishDate: string;
   yearOfOccurrence: number;
 }
 
-export function PostItem({ title, slug, imageUrl, publishDate, yearOfOccurrence }: PostItemProps) {
+export function PostItem({ title, slug, headImage, publishDate, yearOfOccurrence }: PostItemProps) {
   return (
     <Link href="/case/[slug]" as={`/case/${slug}`}>
     <div className="rounded overflow-hidden m-3">
@@ -23,7 +25,7 @@ export function PostItem({ title, slug, imageUrl, publishDate, yearOfOccurrence 
         </span>
       </div>
       <div className="w-48 h-48 inline-block align-middle ">
-        <img className="h-48" src={imageUrl} alt={title} />
+        <img className="h-48" src={headImage} alt={title} />
       </div>
     </div>
     </Link>

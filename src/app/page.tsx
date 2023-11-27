@@ -1,51 +1,41 @@
+import fs from 'fs';
+import matter from 'gray-matter';
 import PostsList from './components/PostsList';
 import {PostItemProps} from './components/PostItem';
 
-async function getDogImage(): Promise<string[]> {
-  const response = await fetch('https://dog.ceo/api/breed/hound/images/random/5');
-  const data = await response.json();
-  console.log(data)
-  return data.message;
-}
+async function getPosts(): Promise<PostItemProps[]> {
+  try {
+    const files = fs.readdirSync('public/posts');
 
-const images: string[] = await getDogImage();
+    const posts = files.map((fileName) => {
+      const slug = fileName.replace('.md', '');
+      const readFile = fs.readFileSync(`public/posts/${fileName}`, 'utf-8');
+      const { data: frontmatter } = matter(readFile);
 
-const postsData: PostItemProps[] = [
-  {
-    title: 'post1',
-    slug: 'post1',
-    imageUrl: images[0],
-    publishDate: '2023-01-01',
-    yearOfOccurrence: 2023
-  },{
-    title: 'Post 2',
-    slug: 'post2',
-    imageUrl: images[1],
-    publishDate: '2023-01-01',
-    yearOfOccurrence: 2023
-  },{
-    title: 'Post 3',
-    slug: 'post3',
-    imageUrl: images[2],
-    publishDate: '2023-01-01',
-    yearOfOccurrence: 2023
-  },{
-    title: 'Post 4',
-    slug: 'post4',
-    imageUrl: images[3],
-    publishDate: '2023-01-01',
-    yearOfOccurrence: 2023
-  },{
-    title: 'Post 5',
-    slug: 'post5',
-    imageUrl: images[4],
-    publishDate: '2023-01-01',
-    yearOfOccurrence: 2023
-  },
-  // ... more posts
-];
+      return {
+        slug,
+        title: frontmatter.title as string, 
+        thumbnail: frontmatter.thumbnail as string,
+        headImage: frontmatter.headImage as string,
+        publishDate: frontmatter.publishDate as string,
+        yearOfOccurrence: frontmatter.yearOfOccurrence as number,
+        ...frontmatter
+      };  
+    }); 
+
+    return posts;  
+
+  } catch (error) {
+    console.error(error);
+
+    return [];  
+  }
+};
+
+const postsData = await getPosts();
 
 export default function HomePage() {
+  getPosts();
   return (
     <div>
         <h1 className="text-5xl font-extrabold tracking-tight text-gray-200 sm:text-[5rem]">
