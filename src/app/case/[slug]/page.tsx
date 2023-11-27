@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
-import Image from 'next/image';
+import Link from 'next/link';
 
 
 interface PostProps {
@@ -36,6 +36,7 @@ export default async function Page({ params } : { params: { slug: string } }) {
 
   return (
     <div className="prose mx-auto mt-8">
+      <Link href="/" className='hover:bg-purple-900 mb-2 inline-block'>&lt; Voltar</Link>
       {!!frontmatter.headImage &&
       <img className='post-headimage' src={frontmatter.headImage} alt={frontmatter.title} />
       }
