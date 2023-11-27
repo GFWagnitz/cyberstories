@@ -7,5 +7,5 @@ headImage:
 publishDate: "TBD"
 yearOfOccurrence: 2023
 tags:
-    - webrtc
+    - ransomware
 ---

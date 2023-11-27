@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from "next/link";
+import Image from "next/image";
 
 export interface PostItemProps {
   slug: string;
@@ -22,7 +23,7 @@ export function PostItem({ title, slug, thumbnail, publishDate, yearOfOccurrence
       </div>
       <div className="w-48 h-48 inline-block align-middle ">
       <span className="faded faded-all">
-        <img className="h-48" src={thumbnail} alt={title} />
+        <Image className="h-48" src={thumbnail!} alt={title} />
         </span>
       </div>
     </div>

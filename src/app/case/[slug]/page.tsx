@@ -2,12 +2,11 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 interface PostProps {
-  frontmatter: {
-    [key: string]: any;
-  },
+  frontmatter: Record<string, string | undefined>,
   content: string
 }
 
@@ -32,13 +31,13 @@ async function getData(slug: string): Promise<PostProps|null>
 
 export default async function Page({ params } : { params: { slug: string } }) {
   
-  const { frontmatter, content }  = await getData(params.slug) as PostProps;
+  const { frontmatter, content } = (await getData(params.slug))!;
 
   return (
     <div className="prose mx-auto mt-8">
       <Link href="/" className='hover:bg-purple-900 mb-2 inline-block'>&lt; Voltar</Link>
-      {!!frontmatter.headImage &&
-      <img className='post-headimage' src={frontmatter.headImage} alt={frontmatter.title} />
+      {!!frontmatter?.headImage && !!frontmatter?.title &&
+      <Image className='post-headimage' src={frontmatter.headImage} alt={frontmatter.title} />
       }
       <h1>{ frontmatter.title }</h1>
       {!!frontmatter.headImage ?

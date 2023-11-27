@@ -1,10 +1,11 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import PostsList from './components/PostsList';
-import {PostItemProps} from './components/PostItem';
+import {type PostItemProps} from './components/PostItem';
 import Link from 'next/link';
 
 function sortPostsByYear(a:PostItemProps, b:PostItemProps) {
+  if(a.publishDate === "TBD" && b.publishDate != "TBD") return 1;
   return a.yearOfOccurrence > b.yearOfOccurrence ? 1 : -1;
 }
 
@@ -41,7 +42,6 @@ async function getPosts(): Promise<PostItemProps[]> {
 const postsData = await getPosts();
 
 export default function HomePage() {
-  getPosts();
   return (
     <div>
         <h1 className="text-5xl font-extrabold tracking-tight text-gray-200 sm:text-[5rem]">

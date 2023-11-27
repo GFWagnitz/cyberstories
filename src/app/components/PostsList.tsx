@@ -1,4 +1,4 @@
-import {PostItem, PostItemProps} from './PostItem';
+import {PostItem, type PostItemProps} from './PostItem';
 
 function PostsList(props: { posts: PostItemProps[] }) {
     return (
