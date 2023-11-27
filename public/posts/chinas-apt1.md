@@ -12,15 +12,10 @@ tags:
 
 APT1, também conhecida como Unidade 61398 do Exército de Libertação Popular (PLA) da China, foi objeto de um relatório significativo de segurança cibernética em 2013 pela empresa americana de segurança cibernética Mandiant. O relatório revelou muitos detalhes sobre as atividades de espionagem cibernética do APT1.
 
-## Identificação
-
-A Mandiant identificou o APT1 como um grupo altamente sofisticado especializado em espionagem cibernética. O relatório vinculou o APT1 ao PLA da China, especificamente à Unidade 61398.
-
 ## Alvos e motivação
 
 O APT1 tinha como alvo principal organizações de vários setores em países de língua inglesa, com foco em propriedade intelectual e segredos comerciais. Os motivos pareciam ser o avanço económico e tecnológico das empresas chinesas.
 
-## Escala de operações
 O relatório revelou uma extensa escala de operações, com o APT1 roubando centenas de terabytes de dados de pelo menos 141 organizações em vários setores.
 
 ## Táticas e técnicas
@@ -39,3 +34,9 @@ O relatório Mandiant foi um dos primeiros a atribuir de forma abrangente as ati
 ## Fontes e leituras adicionais
 
 [APT1: Exposing One of China's Cyber Espionage Units - Mandiant - 1 Feb 2013 ](https://www.mandiant.com/resources/reports/apt1-exposing-one-chinas-cyber-espionage-units)
+
+[APT1 on MITRE ATT&CK Database](https://attack.mitre.org/groups/G0006/)
+
+[Crowdstrike Adversary profile: Putter Panda](https://cdn0.vox-cdn.com/assets/4589853/crowdstrike-intelligence-report-putter-panda.original.pdf)
+
+[Advanced Persistent Threats: Attack Stages, Examples, and Mitigation - Hacker One](https://www.hackerone.com/knowledge-center/advanced-persistent-threats-attack-stages-examples-and-mitigation)

@@ -115,6 +115,13 @@ $faded-wide-spread-radius: 28px !default;
     color: blue;
   }
 }
+
+article p{
+    text-align: justify;
+    max-width: 1240px;
+
+}
+
 article a{
     letter-spacing: 0.1em;
     display: inline-block;
