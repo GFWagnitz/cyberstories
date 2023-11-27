@@ -88,3 +88,8 @@ img.post-headimage {
     height: 40vh;
     object-fit: cover;
 }
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}

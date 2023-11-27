@@ -12,11 +12,11 @@ export interface PostItemProps {
 
 export function PostItem({ title, slug, thumbnail, publishDate, yearOfOccurrence }: PostItemProps) {
   return (
-    <Link className='timeline-item' href="/case/[slug]" as={`/case/${slug}`}>
+    <Link className={"timeline-item " + (publishDate == "TBD" ? "disabled" : "" )} href="/case/[slug]" as={`/case/${slug}`}>
     <div className="rounded m-3">
       <div className="flex-1 p-4 inline-block align-middle">
         <h2 className={"font-bold text-4xl mb-2 inline-block " + (publishDate == "TBD" ? "text-gray-700" : "text-gray-300" )}>{title} ({yearOfOccurrence})&nbsp;</h2>
-        <span className={" text-xl " + (publishDate == "TBD" ? "text-gray-700" : "text-gray-600" )}>
+        <span className={"text-xl " + (publishDate == "TBD" ? "text-gray-700" : "text-gray-600" )}>
           Publicado: {publishDate}&nbsp;
         </span>
       </div>
